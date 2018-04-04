@@ -3,11 +3,12 @@
 
 int main(void)
 {
-    // Get User Input
+    // Get user input
 
     long long cardnum = get_long_long("Please enter your credit card number: ");
 
-    // Determine how many digits in number for initializing array with the right size
+    // Determine the amount of digits for initializing an array of the right size
+
     long long num = cardnum;
     int digits = 0;
 
@@ -19,7 +20,8 @@ int main(void)
 
     int numArray[digits];
 
-    // Get digits and store them in the array
+    // Get the individual digits and store them in the array
+
     int i;
     num = cardnum;
 
@@ -29,13 +31,14 @@ int main(void)
         num /= 10;
     }
 
-    // Validate via Luhn’s algorithm
+    // Validation via Luhn’s Algorithm
 
-    // Multiply every other digit by 2, starting with the number’s second-to-last digit, and then add those products' digits together.
+    // Multiply every other digit by 2, starting with the number’s second-to-last digit, and then add those products' digits together
 
-    int sum1 = 0, product = 0;
+    int sum1 = 0,
+        product = 0;
 
-    for(i = digits - 2; i >= 0; i = i - 2)
+    for (i = digits - 2; i >= 0; i -= 2)
     {
         product = 2 * numArray[i];
 
@@ -49,11 +52,11 @@ int main(void)
         }
     }
 
-    // Add the sum to the sum of the digits that weren’t multiplied by 2.
+    // Add the sum to the sum of the digits that weren’t multiplied by 2
 
     int sum2 = 0;
 
-    for (i = digits - 1; i >= 0; i = i - 2)
+    for (i = digits - 1; i >= 0; i -= 2)
     {
         sum2 += numArray[i];
     }
@@ -64,7 +67,7 @@ int main(void)
 
     if (sum % 10 == 0)
     {
-        // Check the credit institute
+        // Check the credit card company
 
         if (digits == 15 && numArray[0] == 3 && (numArray[1] == 4 || numArray[1] == 7))
         {
