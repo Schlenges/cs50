@@ -67,11 +67,11 @@ int main(void)
         {
             printf("AMEX\n");
         }
-        if (digits == 16 && number[0] == 5 && (number[1] > 0 && number[1] < 6))
+        else if (digits == 16 && number[0] == 5 && (number[1] > 0 && number[1] < 6))
         {
             printf("MASTERCARD\n");
         }
-        if ((digits == 13 || digits == 16) && number[0] == 4)
+        else if ((digits == 13 || digits == 16) && number[0] == 4)
         {
             printf("VISA\n");
         }
